@@ -4,3 +4,4 @@ git checkout <name> - переключение на данную ветку
 git push -u <name del repositor> <name local repositor> - добавление ветки на удалённый репозиторий
 git rm --cached <name> -удаление файла
 git merge --no-ff <branch name> -m <comment> - сохранение информации с ветки 
+git log --oneline --graph - история коммитов
