@@ -7,3 +7,25 @@ git merge --no-ff <branch name> -m <comment> - сохранение информ
 git log --oneline --graph - история коммитов
 git add/ git merge --abort - решение конфликта при слиянии 
 git pull <name del repositor> - получение обновлений в файле с удалённого репозитория
+"that local name of branch"$ git branch -d <delete local name of branch> - удаление локальной ветки
+
+	#удаление ветки с удалённого репозитория
+"that local name of branch"$ git push --delete <del repositor name> <delete local name of branch>
+"that local name of branch"$ git branch -d <delete local name of branch> 
+
+"that local name of branch"$ git tag -a <name of tag> -m <massege> <commit id> - создание тэга, который используется вместо id коммита
+git tag - список всех тэгов
+git push --tags - отправка тэгов на удалённый репозиторий
+"that local name of branch"$ git -d <tag name> - удаление тэга с локального репозитория
+
+	#удаление тэга с удалённого репозитория
+"that local name of branch"$ git --delete origin <tag name>
+"that local name of branch"$ git -d <tag name>
+git log --<name of file> - просмотр истории коммитов по конкретному файлу
+git show <commit id> - просмотр данного коммита
+git show -- <tag name> - просмотр данного коммита по тэгу
+git log -p --<file name> - история коммитов и изменений данного файла
+git log --grep <part of commit> - информация коммита по его части (в частности по коментарию)
+git log -S<part of file> -p - найти изменения по части кокретного файла
+git log --all - поиск коммитов по всем веткам 
+git blame --<name of file> -показывает строки файла и то, кто их менял в последний раз
