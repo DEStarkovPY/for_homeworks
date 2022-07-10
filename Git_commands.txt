@@ -1,0 +1,3 @@
+git branch <name> - введение новой ветки
+git branch - просмотр веток
+git checkout <name> - переключение на данную ветку
