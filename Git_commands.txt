@@ -1,3 +1,4 @@
 git branch <name> - введение новой ветки
 git branch - просмотр веток
 git checkout <name> - переключение на данную ветку
+git push -u <name del repositor> <name local repositor> - добавление ветки на удалённый репозиторий
