@@ -5,3 +5,4 @@ git push -u <name del repositor> <name local repositor> - добавление �
 git rm --cached <name> -удаление файла
 git merge --no-ff <branch name> -m <comment> - сохранение информации с ветки 
 git log --oneline --graph - история коммитов
+git add/ git merge --abort - решение конфликта при слиянии 
