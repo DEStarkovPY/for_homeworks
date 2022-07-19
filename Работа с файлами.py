@@ -41,3 +41,8 @@ with open (full_path_test_file, 'w', encoding = 'utf-8') as encod_test_file:
     encod_test_file.write('Hello!')
     # Windows: cp1251
     # Linux: utf-8
+
+
+str('Ананасы | 10 | кг').replace('|', "") # - метод, позвоялющий заменить первый аргумент на второй в строчке
+str('PY STR INT').split() # - метод, позволяющий получить список из строчки
+','.join(['Hello', 'world']) # - выведет строку с запятой между словами
