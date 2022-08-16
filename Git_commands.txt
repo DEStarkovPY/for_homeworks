@@ -3,6 +3,7 @@ git branch - просмотр веток
 git branch -a - просмотр всех веток (даже скрытых). Используется при копировании удалённого репозитроия.
 git checkout <name> - переключение на данную ветку
 git push -u <name del repositor> <name local repositor> - добавление ветки на удалённый репозиторий
+git push --all - отправка всех веток на удалённый репозиторий
 git rm --cached <name> -удаление файла
 git merge --no-ff <branch name> -m <comment> - сохранение информации с ветки 
 git log --oneline --graph - история коммитов
@@ -35,6 +36,13 @@ git blame --<name of file> -показывает строки файла и то
 git checkout -b <name of branch> - создание новой ветки и переключение на неё
 git reset --<mode(hard,soft,mixed)> <commit id> or HEAD~<num> - некий пропуск коммита
 git checkout head~1 - перемещение указателя HEAD на коммит выше, чтобы проверить работу файлов
+git checkout --track (всё после remotes/) - отслеживание скрытой ветки из команды git branch --all
+(в коментарие) " fixes #{issue id} Order {massege} - закрытие назначенного issue
+
+	#Создание ветки для статичного web-сайта GH
+git checkout -b gh-pages - сама ветка c кодом для сайта
+git push -u origin master
+
 
 	# Решение Git - конфликта
 Нужно проверить файл, если появилась ошибка после операции merge. Если это операция слияния,
