@@ -1,0 +1,47 @@
+
+
+#Создание БД, подключение через psql
+createdb -U postgres test #Создание базы данных с именем test от пользователя с именем postgres
+psql -U postgres -d test #Управление базой данных test от имени postgres
+\? #Все доступные команды
+chcp 1251 #Смена кодовой страницы на 1251
+\q #Выход из режима просмотра доступных команд
+dropdb -U postgres test #Удаление базы данных test от лица postgres
+
+#Создание БД, подключение через psql
+#Типы запросов:
+#1.(Data Definition Language) DDL - CREATE, ALTER, DROP (Управление таблицами)
+#2.(Data Manipulation Language) DML - SELECT, INSERT, UPDATE, DELETE (Управление данными внутри таблицы)
+#3.(Transaction Control Language) TCL - COMMIT, ROLLBACK, SAVEPOINT (Управление транзакциями)
+#4.(Data Control Language) DCL - GRANT, REVOKE, DENY (Управление людьми и их правами)
+
+#Синтаксис при создании БД: Ключевые слова - ЗАГЛАВНЫМИ БУКВАМИ, название таблиц/столбиков - маленькими
+
+#Цикл создания таблиц (на примере):
+CREATE TABLE student (id SERIAL PRIMARY KEY, name VARCHAR(60) NOT NULL); #Создаём таблицу с именем student со столбиками:
+# 'id' с типом SERIAL (увеличивает своё значение на единицу (целое число + 1)), а также добавим ему ограничение PRIMARY KEY
+# 'name' с типом VARCHAR (строка) с максимальной длинной в 60 символов, а также ограничение NOT NULL, которое не даст создать студента без имени
+
+CREATE TABLE IF NOT EXISTS student (id SERIAL PRIMARY KEY, name VARCHAR(60) NOT NULL); #Тоже самое, но выражение 'IF NOT EXISTS' позволяет пропусть создание, если такая таблица уже существует
+ALTER TABLE student RENAME name TO first_name; #Изменение в таблице student столбика name на first_name
+DROP TABLE student #Удаление таблицы student
+
+
+# ';' - ОБЯЗАТЕЛЬНО УСТАНАВЛИВАЕТСЯ В КОНЦЕ ПРИ СОЗДАНИИ ТАБЛИЦЫ!
+
+
+#Связи между отношениями (таблицами):
+#1.Один к одному (пользователь и доп. инфа о нём) - используется, когда нужно связать одну строчку из одной таблицы не более чем с одной строкой из другой таблицы
+#Пример:
+CREATE TABLE IF NOT EXISTS student (
+	id SERIAL UNIQUE PRIMARY KEY, # UNIQUE - Уникальный
+	name VARCHAR(60) NOT NULL
+);
+CREATE TABLE IF NOT EXISTS student_info (
+	id INTEGER PRIMARY KEY REFERENCES student(id), # PRIMARY KEY - не встречается более одного раза, REFERENCES - данный id существует в другой таблице student в столбике id
+	birthday date,
+	city VARCHAR(60),
+	roi TEXT
+);
+#2.Один ко многим (домашние задания на курсе)
+#3.Многие ко многим (пользователи и курсы)
